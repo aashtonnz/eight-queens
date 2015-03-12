@@ -12,18 +12,16 @@ import java.util.*;
 public class TournamentGA2 {
 
    private ArrayList<QueenDist2> dists;
+   private static Random rnd = new Random();
    
    private int survivors;
    private double survivalConst;
    private int splits;
    private double crossoverProb;
    private double mutationProb;
-   
-   private static Random rnd = new Random();
-   
    private int tournSize;
    private double tournConst;
-   
+
    /**
     * Creates a new TournamentGA2.
     *
@@ -63,8 +61,9 @@ public class TournamentGA2 {
    private void generate(int population) {
       dists = new ArrayList<QueenDist2>();
       
-      while(dists.size() < population)
+      while(dists.size() < population) {
          dists.add(new QueenDist2());
+      }
    }
    
    /**
@@ -78,8 +77,9 @@ public class TournamentGA2 {
       
       dists = new ArrayList<QueenDist2>();
       
-      for(int i = 0; i < temp.length; i++)
+      for(int i = 0; i < temp.length; i++) {
          dists.add(temp[i]);
+      }
    }
    
    /**
@@ -93,20 +93,20 @@ public class TournamentGA2 {
       sort();
       final double HIGHEST_FITNESS = dists.get(0).fitness();
       
-      for(int i = 0; i < dists.size(); i++)
-         dists.get(i).calcSurvivalRating(constant,
-                      HIGHEST_FITNESS);
+      for(int i = 0; i < dists.size(); i++) {
+         dists.get(i).calcSurvivalRating(constant, HIGHEST_FITNESS);
+      }
       
       Collections.sort(dists, new Comparator<QueenDist2>() {
          @Override
          public int compare(QueenDist2 dist1, QueenDist2 dist2)
          {
-            if(dist1.getSurvivalRating()
-               > dist2.getSurvivalRating())
+            if(dist1.getSurvivalRating() > dist2.getSurvivalRating()) {
                return -1;
-            if (dist1.getSurvivalRating()
-                < dist2.getSurvivalRating())
+            }
+            if (dist1.getSurvivalRating() < dist2.getSurvivalRating()) {
                return 1;
+            }
             return 0;
          }
       });
@@ -121,8 +121,9 @@ public class TournamentGA2 {
       ArrayList<QueenDist2> survivorDists = new ArrayList<QueenDist2>();
       survivalSort(survivalConst);
       
-      for(int i = 0; survivorDists.size() < survivors; i++)
+      for(int i = 0; survivorDists.size() < survivors; i++) {
          survivorDists.add(dists.get(i));
+      }
       return survivorDists;
    }
    
@@ -135,8 +136,9 @@ public class TournamentGA2 {
       survivalSort(tournConst);
       ArrayList<QueenDist2> competitors = new ArrayList<QueenDist2>(dists);
       
-      while(competitors.size() > tournSize)
+      while(competitors.size() > tournSize) {
          competitors.remove(rnd.nextInt(competitors.size()));
+      }
       return competitors.get(0);
    }
    
@@ -157,8 +159,9 @@ public class TournamentGA2 {
          
          allChildren.add(children[0]);
          
-         if(allChildren.size() < dists.size() - survivors)
+         if(allChildren.size() < dists.size() - survivors) {
             allChildren.add(children[1]);
+         }
       }
       return allChildren;
    }
@@ -173,10 +176,12 @@ public class TournamentGA2 {
       
       dists = new ArrayList<QueenDist2>();
       
-      for(int i = 0; i < survivorDists.size(); i++)
+      for(int i = 0; i < survivorDists.size(); i++) {
          dists.add(survivorDists.get(i));
-      for(int i = 0; i < children.size(); i++)
+      }
+      for(int i = 0; i < children.size(); i++) {
          dists.add(children.get(i));
+      }
    }
    
    /**
