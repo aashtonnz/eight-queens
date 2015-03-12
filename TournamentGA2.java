@@ -21,7 +21,7 @@ public class TournamentGA2 {
    private double mutationProb;
    private int tournSize;
    private double tournConst;
-
+ 
    /**
     * Creates a new TournamentGA2.
     *
