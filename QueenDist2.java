@@ -163,11 +163,11 @@ public class QueenDist2 implements Comparable<QueenDist2> {
          is another attacking pair. */
       for(int i = 0; i < N; i++)
          for(int j = 1; j < N - i; j++) {
-            if( get(i + j) == get(i) )
+            if(get(i + j) == get(i))
                pairs++;
-            if( get(i + j) == get(i) + j )
+            if(get(i + j) == get(i) + j)
                pairs++;
-            if( get(i + j) == get(i) - j )
+            if(get(i + j) == get(i) - j)
                pairs++;
          }
       return pairs;
@@ -241,8 +241,8 @@ public class QueenDist2 implements Comparable<QueenDist2> {
       result.append("(");
       
       for(int i = 0; i < N - 1; i++)
-         result.append( get(i) + ", " );
-      result.append( get(N - 1) + ")" );
+         result.append(get(i) + ", ");
+      result.append(get(N - 1) + ")");
       
       return result.toString();
    }
