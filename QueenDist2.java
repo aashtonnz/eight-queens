@@ -32,8 +32,9 @@ public class QueenDist2 implements Comparable<QueenDist2> {
    public QueenDist2() {
       this.vector = new int[N];
       
-      for(int i = 0; i < N; i++)
+      for(int i = 0; i < N; i++) {
          this.vector[i] = 1 + rnd.nextInt(N);
+      }
    }
    
    /**
@@ -69,11 +70,12 @@ public class QueenDist2 implements Comparable<QueenDist2> {
    {
       int[] newVector = new int[N];
       
-      for(int i = 0; i < splitPoint; i++)
+      for(int i = 0; i < splitPoint; i++) {
          newVector[i] = this.get(i);
-      for(int i = splitPoint; i < N; i++)
+      }
+      for(int i = splitPoint; i < N; i++) {
          newVector[i] = other.get(i);
-      
+      }
       return new QueenDist2(newVector);
    }
    
@@ -96,9 +98,9 @@ public class QueenDist2 implements Comparable<QueenDist2> {
          /* Add split points to a list, making sure each is distinct from the
             others, until it has the required number of splits. */
          while(list.size() < splits) {
-            do
+            do {
                splitPoint = rnd.nextInt(QueenDist2.N - 1) + 1;
-            while(list.contains(splitPoint));
+            } while(list.contains(splitPoint));
             list.add(splitPoint);
          }
          Integer[] splitPoints = new Integer[list.size()];
@@ -114,15 +116,11 @@ public class QueenDist2 implements Comparable<QueenDist2> {
             point. */
          for(int i = 1; i < splitPoints.length; i++) {
             if(i % 2 == 0) {
-               children[0] = children[0].combine(splitPoints[i],
-                             other);
-               children[1] = children[1].combine(splitPoints[i],
-                             this);
+               children[0] = children[0].combine(splitPoints[i], other);
+               children[1] = children[1].combine(splitPoints[i], this);
             } else {
-               children[0] = children[0].combine(splitPoints[i],
-                             this);
-               children[1] = children[1].combine(splitPoints[i],
-                             other);
+               children[0] = children[0].combine(splitPoints[i], this);
+               children[1] = children[1].combine(splitPoints[i], other);
             }
          }
       } else {
@@ -145,8 +143,9 @@ public class QueenDist2 implements Comparable<QueenDist2> {
     * @param prob the probability of a change occurring
     */
    public void mutate(double prob) {
-      if(rnd.nextDouble() < prob)
+      if(rnd.nextDouble() < prob) {
          vector[rnd.nextInt(N)] = 1 + rnd.nextInt(N);
+      }
    }
    
    /**
@@ -161,15 +160,19 @@ public class QueenDist2 implements Comparable<QueenDist2> {
          has a queen in the same row, j rows above (i.e. on the upwards
          diagonal), or j rows below (i.e. on the downwards diagonal), then there
          is another attacking pair. */
-      for(int i = 0; i < N; i++)
+      for(int i = 0; i < N; i++) {
          for(int j = 1; j < N - i; j++) {
-            if(get(i + j) == get(i))
+            if(get(i + j) == get(i)) {
                pairs++;
-            if(get(i + j) == get(i) + j)
+            }
+            if(get(i + j) == get(i) + j) {
                pairs++;
-            if(get(i + j) == get(i) - j)
+            }
+            if(get(i + j) == get(i) - j) {
                pairs++;
+            }
          }
+      }
       return pairs;
    }
    
@@ -200,12 +203,12 @@ public class QueenDist2 implements Comparable<QueenDist2> {
     */
    public void calcSurvivalRating(double survivalConst, double
                                   highestFitness) {
-      if(highestFitness == 0)
+      if(highestFitness == 0) {
          survivalRating = 0;
-      else
-         survivalRating = survivalConst * this.fitness() /
-                          highestFitness + (1 - survivalConst) *
-                          rnd.nextDouble();
+      } else {
+         survivalRating = survivalConst * this.fitness() / highestFitness
+                           + (1 - survivalConst) * rnd.nextDouble();
+      }
    }
    
    /**
@@ -240,8 +243,9 @@ public class QueenDist2 implements Comparable<QueenDist2> {
       StringBuilder result = new StringBuilder();
       result.append("(");
       
-      for(int i = 0; i < N - 1; i++)
+      for(int i = 0; i < N - 1; i++) {
          result.append(get(i) + ", ");
+      }
       result.append(get(N - 1) + ")");
       
       return result.toString();
