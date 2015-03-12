@@ -17,4 +17,4 @@ One iteration of the genetic algorithm acts on the population as follows:
   6. Steps (3) to (5) are repeated until the population contains 500 solutions again.
   7. If the population contains an optimal solution then it is printed.
 
-
+The adjustable parameters have been set to values determined through experimentation. However the intention of this project was to implement a genetic algorithm, so certain parameters were restricted. For example, one might increase the mutation rate to 100%, but this would not be consistent with natural evolution.
