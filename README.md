@@ -9,10 +9,10 @@ This program uses a genetic algorithm to iterate on an inital population of 500 
 
 The genetic algorithm acts on each population as follows:
 
-  1. A 'fitness' rating is calculated for each solution, based on the number of threatening queens and random generation The degree of random generation is currently at 50 % but may be adjusted.
+  1. A 'fitness' rating is calculated for each solution, based on the number of threatening queens and random generation. The degree of random generation is currently at 50 % but may be adjusted.
   2. The most fit 150 solutions (of the 500 in the population) are retained. This quantity may also be adjusted.
-  3. These 150 solutions compete in a 'tournament' in which new fitness ratings are calculated but with a 30 % degree of randomness (adjustable).
-  2. New solutions are created from the surviving 150 using a technique called 'crossover'. This entails dividing each vector into seven (adjustable) segments and then recombining them with segment from another vector. The division points are 
-  3. 
+  3. The most fit 120 solutions compete in a 'tournament' in which new fitness ratings are calculated but with a 30 % degree of randomness (adjustable).
+  2. New solutions are created from the surviving 150 using a technique called 'crossover'. This entails randomly selecting pairs of solution vectors, dividing each vector at six split points, and then recombining them. Currently this process is 100 % successful, however this may be adjusted, as may be the number of split points. Finally, there is a 0.1 % chance that a vector component of a new solution will be randomly changed (or 'mutated'). These new solutions continue to be generated until the population is once again 500 solutions.
+  3. If the population contains an optimal solution then it is printed.
 
 
