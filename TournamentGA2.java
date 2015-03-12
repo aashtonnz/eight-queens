@@ -122,7 +122,7 @@ public class TournamentGA2 {
       survivalSort(survivalConst);
       
       for(int i = 0; survivorDists.size() < survivors; i++)
-         survivorDists.add( dists.get(i) );
+         survivorDists.add(dists.get(i));
       return survivorDists;
    }
    
@@ -174,7 +174,7 @@ public class TournamentGA2 {
       dists = new ArrayList<QueenDist2>();
       
       for(int i = 0; i < survivorDists.size(); i++)
-         dists.add( survivorDists.get(i) );
+         dists.add(survivorDists.get(i));
       for(int i = 0; i < children.size(); i++)
          dists.add(children.get(i));
    }
