@@ -33,7 +33,7 @@ public class GAApp {
       System.out.println("Generation: " + gen);
       System.out.println(ga);
       
-      if( ga.isOptimal() ) {
+      if(ga.isOptimal()) {
          System.out.println();
          System.out.println("OPTIMAL SOLUTION FOUND");
       }
