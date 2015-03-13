@@ -115,7 +115,7 @@ public class TournamentGA2 {
    /**
     * Returns those QueenDists to be retained between populations.
     *
-    * @returns an ArrayList of surviving QueenDists
+    * @return an ArrayList of surviving QueenDists
     */
    private ArrayList<QueenDist2> getSurvivors() {
       ArrayList<QueenDist2> survivorDists = new ArrayList<QueenDist2>();
@@ -130,7 +130,7 @@ public class TournamentGA2 {
    /**
     * Returns a parent for crossover, using a tournament.
     *
-    * @returns a parent for crossover
+    * @return a parent for crossover
     */
    private QueenDist2 selectParent() {
       survivalSort(tournConst);
@@ -146,7 +146,7 @@ public class TournamentGA2 {
     * Returns the children which, along with the survivors, will populate the
     * next generation.
     *
-    * @returns the children
+    * @return the children
     */
    private ArrayList<QueenDist2> getChildren() {
       ArrayList<QueenDist2> allChildren = new ArrayList<QueenDist2>();
@@ -188,7 +188,7 @@ public class TournamentGA2 {
     * Returns true if the current generation of QueenDists contains one with
     * perfect fitness.
     *
-    * @returns true if the current generation contains a QueenDist with fitness
+    * @return true if the current generation contains a QueenDist with fitness
     *          of 1
     */
    public boolean isOptimal() {
@@ -200,7 +200,7 @@ public class TournamentGA2 {
     * Returns a string containing the position vector of the most fit QueenDist
     * in the population and its fitness.
     *
-    * @returns the best solution and its fitness
+    * @return the best solution and its fitness
     */
    public String toString() {
       sort();
