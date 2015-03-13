@@ -1,11 +1,15 @@
 # eight-queens
-A Java implementation of a genetic algorithm for solving the 'eight queens' chess puzzle.
+*A Java implementation of a genetic algorithm for solving the 'eight queens' chess puzzle.*
+
+### Overview
 
 The 'eight queens' chess puzzle asks how one can position eight queens on an 8 by 8 chessboard such that no queen threatens another.
 
 Each possible solution is represented by an eight dimensional vector, where the ith component represents the row position of the queen in the ith column (noting that only one queen can appear in each).
 
-This program uses a genetic algorithm to iterate on an inital population of 500 random solutions. After each iteration the best solution is printed. If a correct ('optimal') solution is found then it is printed along with a message 'OPTIMAL SOLUTION FOUND' and the program terminates. If a correct solution is not found within 30 iterations of the algorithm then the program terminates.
+This program uses a genetic algorithm to iterate on an inital population of 500 random solutions. After each iteration the best solution is printed. If a correct ('optimal') solution is found then it is printed along with a message `OPTIMAL SOLUTION FOUND` and the program terminates. If a correct solution is not found within 30 iterations of the algorithm then the program terminates.
+
+### The Algorithm
 
 One iteration of the genetic algorithm acts on the population as follows:
 
@@ -20,3 +24,9 @@ One iteration of the genetic algorithm acts on the population as follows:
 The adjustable parameters have been set to values determined through experimentation. However the intention of this project was to implement a genetic algorithm, so certain parameters were restricted. For example, one might increase the mutation rate to 100%, but this would not be consistent with natural evolution.
 
 This program is successful in finding an optimal solution approximately a third of the time.
+
+### Files
+
+* Solution vectors are represented as objects in *QueenDist2.java*.
+* The genetic algorithm is implemented in *TournamentGA2.java* as an object. This allows several genetic algorithms to be run at the same time and with different parameters.
+* The application *GAApp.java* runs the genetic algorithm.
