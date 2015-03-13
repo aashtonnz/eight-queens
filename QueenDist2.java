@@ -51,7 +51,7 @@ public class QueenDist2 implements Comparable<QueenDist2> {
     * Returns the row position of the Queen in the given column.
     *
     * @param col a column
-    * @returns the row position of the queen in the given column
+    * @return the row position of the queen in the given column
     */
    public int get(int col) {
       return vector[col];
@@ -64,7 +64,7 @@ public class QueenDist2 implements Comparable<QueenDist2> {
     *
     * @param splitPoint the point after which to split both QueenDist2 vectors
     * @param other      the QueenDist2 to be combined with this QueenDist2
-    * @returns the derived QueenDist2
+    * @return the derived QueenDist2
     */
    private QueenDist2 combine(int splitPoint, QueenDist2 other)
    {
@@ -87,7 +87,7 @@ public class QueenDist2 implements Comparable<QueenDist2> {
     * @param prob   the probability of deriving new QueenDist2s
     * @param splits the number of split points at which to crossover
     * @param other  the QueenDist2 to crossover with this QueenDist2
-    * @returns an array of two QueenDist2s
+    * @return an array of two QueenDist2s
     */
    public QueenDist2[] crossover(double prob, int splits, QueenDist2 other) {
      QueenDist2[] children = new QueenDist2[2];
@@ -151,7 +151,7 @@ public class QueenDist2 implements Comparable<QueenDist2> {
    /**
     * Determines the number of attacking pairs of queens for the QueenDist2.
     *
-    * @returns the number of attacking pairs
+    * @return the number of attacking pairs
     */
    public int attackingPairs() {
       int pairs = 0;
@@ -180,7 +180,7 @@ public class QueenDist2 implements Comparable<QueenDist2> {
    * Measures the number of attacking pairs as a double from 0 (maximum possible
    * attacking pairs) to 1 (no attacking pairs).
    *
-   * @returns a measure of the number of attacking pairs
+   * @return a measure of the number of attacking pairs
    */
    public double fitness() {
    
@@ -215,7 +215,7 @@ public class QueenDist2 implements Comparable<QueenDist2> {
     * Returns the survival rating previously calculated, or 0 if it has not been
     * calculated.
     *
-    * @returns the survival rating
+    * @return the survival rating
     */
    public double getSurvivalRating() {
       return survivalRating;
@@ -227,7 +227,7 @@ public class QueenDist2 implements Comparable<QueenDist2> {
     *
     * @param other the QueenDist2 to be compared to
     *
-    * @returns the fitness of the other QueenDist2 minus the fitness of this
+    * @return the fitness of the other QueenDist2 minus the fitness of this
     *          QueenDist2.
     */
    public int compareTo(QueenDist2 other) {
@@ -237,7 +237,7 @@ public class QueenDist2 implements Comparable<QueenDist2> {
    /**
     * Returns the position vector for the QueenDist2.
     *
-    * @returns the components of the position vector in brackets
+    * @return the components of the position vector in brackets
     */
    public String toString() {
       StringBuilder result = new StringBuilder();
