@@ -23,7 +23,7 @@ One iteration of the genetic algorithm acts on the population as follows:
 
 The adjustable parameters have been set to values determined through experimentation. However the intention of this project was to implement a genetic algorithm, so certain parameters were restricted. For example, one might increase the mutation rate to 100%, but this would not be consistent with natural evolution.
 
-This program is successful in finding an optimal solution approximately a third of the time.
+Usually a solution will be found within 10 iterations of the algorithm.
 
 ### Files
 
